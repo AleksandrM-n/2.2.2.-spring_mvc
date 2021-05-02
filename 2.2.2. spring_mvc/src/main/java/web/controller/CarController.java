@@ -25,13 +25,12 @@ public class CarController {
     public String printCars(@RequestParam (value = "count", required = false) Integer count,
                             ModelMap model) {
 
-        List<String> messages = new ArrayList<>();
+        List<Car> messages = new ArrayList<>();
 
         count = (count == null) || (count > 5) ? 5 : count;
 
         for(int i = 0; i < count; i++) {
-            messages.add(carList.get(i).toString());
-            messages.add("");
+            messages.add(carList.get(i));
         }
 
         model.addAttribute("printCars", messages);
